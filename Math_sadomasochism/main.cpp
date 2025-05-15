@@ -2,14 +2,14 @@
 
 using namespace std;
 
-#define umnojenie
-
+//#define umnojenie
+#define opredelitel
 
 	void main()
 	{
 		setlocale(LC_ALL, "");
 
-	#ifdef umnojenie
+#ifdef umnojenie
 		int matrix_1[3][3];
 		int matrix_2[3][3];
 		int res[3][3] = {
@@ -67,5 +67,37 @@ using namespace std;
 			}
 			cout << endl;
 		}
-	#endif
+#endif
+
+#ifdef opredelitel
+		int matrix[3][3];
+		int opredelitelb;
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				matrix[i][j] = rand() % 100; // Рандомайзер для матрицы 
+			}
+		}
+		cout << "Вывод матрицы: " << "\n\n";
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				cout << matrix[i][j] << "\t"; // Вывод матрицы 
+			}
+			cout << endl;
+		}
+		cout << endl;
+
+		cout << "Определитель матрицы: " << "\n\n";
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				opredelitelb = matrix[0][0] * matrix[1][1] * matrix[2][2] + matrix[0][1] * matrix[1][2] * matrix[2][0] + matrix[0][2] * matrix[1][0] * matrix[2][1] - matrix[0][2] * matrix[1][1] * matrix[2][0] - matrix[0][0] * matrix[1][2] * matrix[2][1] - matrix[0][1] * matrix[1][0] * matrix[2][2];
+			}
+		}
+		cout << opredelitelb;
+#endif
 	}
